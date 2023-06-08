@@ -1,0 +1,78 @@
+a {
+  color: #3778FA;
+  text-decoration: none;
+}
+
+body {
+  background-color: #141414;
+  font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
+  color: #ffffff;
+  font-size: 16px;
+  /* line-height: 1.45; */
+}
+
+h1, p {
+  margin: 0
+}
+
+button {
+  color: #141414;
+  background-color: #3778FA;
+  padding: 16px 24px;
+  border-radius: 8px;
+  transition: all .225s linear;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+}
+
+button:hover {
+  opacity: .75;
+  border-color: #3778FA;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  background-color: #B4B6B8;
+}
+
+.message {
+    margin-top: 24px;
+    text-align: center;
+}
+
+.mint {
+    position: relative;
+    width: 100%;
+}
+.mint button {
+    width: 100%;
+}
+.indicator {
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: 0;
+}
+.indicator {
+    display: inline-block;
+    margin: 8px auto;
+}
+.indicator:after {
+    content: " ";
+    display: block;
+    width: 24px;
+    height: 24px;
+    margin: auto;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    border-color: #fff transparent #fff transparent;
+    animation: indicator 1.2s linear infinite;
+  }
+  @keyframes indicator {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
