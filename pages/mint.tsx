@@ -6,12 +6,7 @@ import collectionLogo from "../public/collection.png";
 import {
   CandyMachine,
   Metaplex,
-  Nft,
-  NftWithToken,
   PublicKey,
-  Sft,
-  SftWithToken,
-  findMetadataPda,
   walletAdapterIdentity,
 } from "@metaplex-foundation/js"
 import { Keypair, Transaction, TransactionInstruction } from "@solana/web3.js"
@@ -150,8 +145,8 @@ export default function Mint() {
                 // console.log(collection)
             }
         })()
-      }, [wallet, connection])
-
+      }, [wallet, connection, candyMachine])
+    
     // const handleMintV3 = async () => {
     //     setShowIndicator(true);
     //     try {
