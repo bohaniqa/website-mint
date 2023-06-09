@@ -1,6 +1,11 @@
-a {
-  color: #3778FA;
-  text-decoration: none;
+html,
+body,
+main,
+#__next {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100%;
 }
 
 body {
@@ -8,14 +13,28 @@ body {
   font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,sans-serif;
   color: #ffffff;
   font-size: 16px;
-  /* line-height: 1.45; */
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 h1, p {
   margin: 0
 }
 
-button {
+a {
+    color: #3778FA;
+    text-decoration: none;
+}
+
+button,
+.button {
   color: #141414;
   background-color: #3778FA;
   padding: 16px 24px;
@@ -27,12 +46,15 @@ button {
   border: none;
 }
 
-button:hover {
+button:hover,
+.button:hover {
   opacity: .75;
   border-color: #3778FA;
 }
 
-button:disabled {
+.disabled,
+button:disabled,
+.button:disabled {
   cursor: not-allowed;
   background-color: #B4B6B8;
 }
@@ -67,12 +89,63 @@ button:disabled {
     border: 4px solid #fff;
     border-color: #fff transparent #fff transparent;
     animation: indicator 1.2s linear infinite;
-  }
-  @keyframes indicator {
+}
+@keyframes indicator {
     0% {
       transform: rotate(0deg);
     }
     100% {
       transform: rotate(360deg);
     }
-  }
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 24px;
+}
+
+nav img {
+    display: block;
+    height: 48px;
+    width: auto;
+}
+
+nav ul {
+    float: right;
+}
+nav li {
+    display: inline-block;
+    vertical-align: top;
+    margin-left: 16px;
+    overflow: hidden;
+}
+nav a {
+    display: block;
+}
+
+#splash {
+    flex: 1;
+}
+
+#splash .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+#splash img {
+    margin: auto 12px;
+}
+#splash .row {
+    display: block;
+    margin: 12px auto;
+}
