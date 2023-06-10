@@ -56,6 +56,7 @@ const candyMachineId = process.env.NEXT_PUBLIC_CANDY_MACHINE_ID;
 if (!candyMachineId) {
     throw new Error("Please provide a candy machine id.");
 }
+console.log('Candy Machine ID', candyMachineId);
 
 const collectionName = process.env.NEXT_PUBLIC_COLLECTION_NAME;
 if (!collectionName) {
@@ -71,6 +72,7 @@ const shiftProgramId = process.env.NEXT_PUBLIC_SHIFT_PROGRAM_ID;
 if (!shiftProgramId) {
     throw new Error("Please provide a shift program id.");
 }
+console.log('Shift Program ID', shiftProgramId);
 
 // const candyMachinePubkey = publicKey(candyMachineId);
 // const umi = createUmi(network).use(mplCandyMachine());
