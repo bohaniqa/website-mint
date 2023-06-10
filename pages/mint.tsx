@@ -51,6 +51,7 @@ const network = process.env.NEXT_PUBLIC_SOLANA_RPC_URL;
 if (!network) {
     throw new Error("Please provide a cluster url.");
 }
+console.log('RPC URL', network);
 
 const candyMachineId = process.env.NEXT_PUBLIC_CANDY_MACHINE_ID;
 if (!candyMachineId) {
@@ -236,18 +237,20 @@ export default function Mint() {
         // const employerPDA = PublicKey.findProgramAddressSync([employerSeed], shiftPubkey);
         // const employeeSeed = utf8.serialize("employee");
         // const employeePDA = PublicKey.findProgramAddressSync([employeeSeed, nftMint.toBytes()], shiftPubkey);
-        const nftMetadata = findMetadataAddress(nftMint);
+        const [employerPubkey, employerBump] = employerPDA;
+        const [employeePubkey, employeeBump] = employeePDA;
+        const [nftMetadataPubkey, nftMetadataBump] = findMetadataAddress(nftMint);
         return createShiftProgramIx(
             6, [
-                createAccountMeta(employerPDA[0], true, false),
+                createAccountMeta(employerPubkey, true, false),
                 createAccountMeta(nftMint, false, false),
-                createAccountMeta(nftMetadata[0], false, false),
+                createAccountMeta(nftMetadataPubkey, false, false),
                 createAccountMeta(publicKey!, true, true),
-                createAccountMeta(employeePDA[0], true, false),
+                createAccountMeta(employeePubkey, true, false),
                 createAccountMeta(shiftProgram, false, false),
                 createAccountMeta(SystemProgram.programId, false, false),
             ], [
-                employeePDA[1],
+                employeeBump,
             ],
         )
     }
@@ -256,12 +259,12 @@ export default function Mint() {
         employeePDA: [PublicKey, number],
         nftMint: PublicKey,
     ): TransactionInstruction => {
-        const nftMetadata = findMetadataAddress(nftMint);
+        const [employeePubkey, employeeBump] = employeePDA;
         return createShiftProgramIx(
             7, [
-                createAccountMeta(employeePDA[0], true, false),
+                createAccountMeta(employeePubkey, true, false),
             ], [
-                employeePDA[1],
+                employeeBump,
                 ...(Array.from(nftMint.toBytes())),
             ],
         )
