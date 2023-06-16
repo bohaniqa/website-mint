@@ -128,17 +128,10 @@ export default function Mint() {
 
             umi = umi.use(walletAdapterIdentity(wallet));
 
-            // const metaplex = new Metaplex(connection).use(oldWalletAdapterIdentity(wallet));
-            // setMetaplex(metaplex);
-
-            // const candyMachine = await metaplex
-            //     .candyMachines()
-            //     .findByAddress({ address: new PublicKey(candyMachineId as string) });
             const candyMachine = await fetchCandyMachine(umi, candyMachinePubkey);
             setCandyMachine(candyMachine);
 
             const candyGuard = await safeFetchCandyGuard(umi, candyMachine.mintAuthority);
-            console.log('CANDY GUARD', candyGuard);
             setCandyGuard(candyGuard);
 
             setShowIndicator(false);
@@ -340,11 +333,6 @@ export default function Mint() {
         shiftProgram: PublicKey,
         nftMint: PublicKey,
     ): TransactionInstruction => {
-        // const shiftPubkey = new PublicKey(shiftProgramId!);
-        // const employerSeed = utf8.serialize("employer");
-        // const employerPDA = PublicKey.findProgramAddressSync([employerSeed], shiftPubkey);
-        // const employeeSeed = utf8.serialize("employee");
-        // const employeePDA = PublicKey.findProgramAddressSync([employeeSeed, nftMint.toBytes()], shiftPubkey);
         const [employerPubkey, employerBump] = employerPDA;
         const [employeePubkey, employeeBump] = employeePDA;
         const [nftMetadataPubkey, nftMetadataBump] = findMetadataAddress(nftMint);
@@ -480,8 +468,6 @@ export default function Mint() {
     const sold = !candyMachine || !enabled ? null : Number(candyMachine.itemsRedeemed) + purchased;
     const collectionSize = 10000;
     const soldOut = sold != null && sold == collectionSize;
-
-    console.log('ENABLED', enabled);
 
     return (
         <div
