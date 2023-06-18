@@ -112,6 +112,7 @@ export default function Mint() {
 
     const wallet = useWallet()
     const { publicKey } = wallet
+    umi = umi.use(walletAdapterIdentity(wallet));
     const { connection } = useConnection()
     // const [metaplex, setMetaplex] = useState<Metaplex | null>(null)
     const [candyMachine, setCandyMachine] = useState<CandyMachine | null>(null)
