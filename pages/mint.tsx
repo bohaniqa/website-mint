@@ -468,7 +468,7 @@ export default function Mint() {
 
     const sold = !candyMachine || !enabled ? null : Number(candyMachine.itemsRedeemed) + purchased;
     const collectionSize = 10000;
-    const soldOut = sold != null && sold == collectionSize;
+    const soldOut = enabled && sold != null && sold == collectionSize;
 
     return (
         <div
