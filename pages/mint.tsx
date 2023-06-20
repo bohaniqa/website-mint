@@ -121,7 +121,7 @@ export default function Mint() {
     const [formMessage, setFormMessage] = useState<any | null>(null)
     const [nftMint, setNftMint] = useState<PublicKey | null>(null)
     const [showIndicator, setShowIndicator] = useState<boolean>(true)
-    const [enabled, setEnabled] = useState<boolean>(true);
+    const [enabled, setEnabled] = useState<boolean>(false);
 
     useEffect(() => {
     ;(async () => {
