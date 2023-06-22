@@ -121,7 +121,7 @@ export default function Mint() {
     const [formMessage, setFormMessage] = useState<any | null>(null)
     const [nftMint, setNftMint] = useState<PublicKey | null>(null)
     const [showIndicator, setShowIndicator] = useState<boolean>(true)
-    const [enabled, setEnabled] = useState<boolean>(false);
+    const [enabled, setEnabled] = useState<boolean>(true);
 
     useEffect(() => {
     ;(async () => {
@@ -528,7 +528,7 @@ export default function Mint() {
                     <span style={{ fontSize: "12px" }}>Sold</span>
                     <span style={{ fontSize: "12px" }}>{sold ?? "-"} / {collectionSize}</span>
                 </div>
-                <Countdown onTimeout={() => setEnabled(true)}></Countdown>
+                {/* <Countdown onTimeout={() => setEnabled(true)}></Countdown> */}
                 <div className="mint">
                     <button disabled={!enabled || !publicKey || showIndicator || soldOut} onClick={handleMintV3}>
                         Mint
