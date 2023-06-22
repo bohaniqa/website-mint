@@ -258,7 +258,7 @@ export default function Mint() {
 
                 const networkMatches = connection.rpcEndpoint.match(/^https:\/\/api\.([^.]+)\.solana\.com/);
                 const network = networkMatches != null ? networkMatches[1] : null;
-                const href = `https://solscan.io/token/${nftPubkey.toBase58()}?cluster=${network}`;
+                const href = `https://solscan.io/token/${nftPubkey.toBase58()}`;
 
                 ++purchased;
                 setFormMessage(
