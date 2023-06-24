@@ -466,8 +466,8 @@ export default function Mint() {
     //     ? (Number(solPaymentOption.value.lamports.basisPoints) / 1e9)
     //     : null;
 
-    const sold = !candyMachine || !enabled ? null : Number(candyMachine.itemsRedeemed) + purchased;
     const collectionSize = 10000;
+    const sold = !candyMachine || !enabled ? null : collectionSize-(Number(candyMachine.itemsRedeemed)+purchased);
     const soldOut = enabled && sold != null && sold == collectionSize;
 
     return (
@@ -515,8 +515,8 @@ export default function Mint() {
                     marginBottom: "4px",
                 }}
                 >
-                <span>Price</span>
-                <b>{solPrice != null ? solPrice + " SOL" : "-"}</b>
+                    <span>Price</span>
+                    <b>{solPrice != null ? solPrice + " SOL" : "-"}</b>
                 </div>
                 <div
                 style={{
@@ -525,8 +525,8 @@ export default function Mint() {
                     marginBottom: "16px",
                 }}
                 >
-                    <span style={{ fontSize: "12px" }}>Sold</span>
-                    <span style={{ fontSize: "12px" }}>{sold ?? "-"} / {collectionSize}</span>
+                    <span style={{ fontSize: "12px" }}>Remaining</span>
+                    <span style={{ fontSize: "12px" }}>{sold ?? "-"}</span>
                 </div>
                 {/* <Countdown onTimeout={() => setEnabled(true)}></Countdown> */}
                 <div className="mint">
