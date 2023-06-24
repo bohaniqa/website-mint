@@ -96,7 +96,7 @@ console.log('Shift Program ID', shiftProgramId);
 
 const candyMachinePubkey = umiPublicKey(candyMachineId);
 let umi = createUmi(network).use(mplCandyMachine());
-const solPrice = 5.95;
+const solPrice = 0.7;
 let purchased = 0;
 
 export default function Mint() {
