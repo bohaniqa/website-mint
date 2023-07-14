@@ -96,7 +96,7 @@ console.log('Shift Program ID', shiftProgramId);
 
 const candyMachinePubkey = umiPublicKey(candyMachineId);
 let umi = createUmi(network).use(mplCandyMachine());
-const solPrice = 0.25;
+const solPrice = 0.0;
 let purchased = 0;
 
 export default function Mint() {
@@ -516,7 +516,7 @@ export default function Mint() {
                 }}
                 >
                     <span>Price</span>
-                    <b>{solPrice != null ? solPrice + " SOL" : "-"}</b>
+                    <b>{solPrice != null ? (solPrice == 0 ? "FREE" : solPrice + " SOL") : "-"}</b>
                 </div>
                 <div
                 style={{
