@@ -6,7 +6,7 @@ export default function Home() {
     return (
     <>
         <Head>
-        <title>BOHANIQA Mint</title>
+        <title>Bohaniqa - Mint</title>
         <meta name="description" content="10K digital mining machines." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
